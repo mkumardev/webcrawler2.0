@@ -65,6 +65,8 @@ def getWebsiteAssets(url):
                 r = requests.get(link, allow_redirects=True)
                 name = link.rsplit('/', 1)[1]
                 # print(name)
+                if not os.path.exists('images'):
+                    os.makedirs('images')
                 open('images/' + name, 'wb').write(r.content)
                 
             except Exception as inst:
